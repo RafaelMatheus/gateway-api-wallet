@@ -13,6 +13,7 @@ Projeto de uma WALLET utilizando microserviços, java e spring.
 
 
 ###### Download dos projetos
+* É necessário baixar o projeto do [gateway](https://github.com/RafaelMatheus/gateway-api-wallet) e executá-lo.
 * É necessário baixar o projeto do [usuário](https://github.com/RafaelMatheus/usuario-service) e executá-lo.
 * É necessário baixar o projeto de [transação](https://github.com/RafaelMatheus/transacao-service) e executá-lo. 
 * É necessário baixar o projeto de [conta](https://github.com/RafaelMatheus/account-service) e executá-lo
@@ -42,15 +43,51 @@ Projeto de uma WALLET utilizando microserviços, java e spring.
 ```
 
 para visualizar o usuário cadastrado é possivel.
-
-* http://{URL_GATEWAY}/usuarios/0123456789
+* GET request http://{URL_GATEWAY}/usuarios/0123456789
 
 
 ##### Contas-service
 
 ###### contas
+* POST request http://{URLGATEWAY}/api/contas
+
+``` json 
+{
+  "cpfUsuario": "string",
+  "numeroAgencia": "string"
+}
+```
+* GET request http://{URLGATEWAY}/api/contas
 
 ###### Agencias
+* POST request http://{URLGATEWAY}/api/agencias
+
+``` json 
+
+
+{
+  "descricao": "string"
+}
+
+```
+* GET request http://{URLGATEWAY}/api/agencias
 
 ###### Transacoes
 
+* POST request http://{URLGATEWAY}/api/transacoes
+
+``` json 
+{
+  "contaDestino": {
+    "numeroAgencia": "string",
+    "numeroConta": "string"
+  },
+  "contaOrigem": {
+    "numeroAgencia": "string",
+    "numeroConta": "string"
+  },
+  "tipoTransacao": "DEPOSITO",
+  "valorTransacao": 0
+}
+
+```
