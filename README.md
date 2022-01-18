@@ -89,9 +89,32 @@ para visualizar o usuário cadastrado é possivel.
     "numeroAgencia": "string",
     "numeroConta": "string"
   },
-  "tipoTransacao": "DEPOSITO",
+  "tipoTransacao": "TRANSFERENCIA",
   "valorTransacao": 0
 }
 
 ```
 
+``` json 
+{
+  "contaDestino": {
+    "numeroAgencia": "string",
+    "numeroConta": "string"
+  },
+  "tipoTransacao": "TRANSFERENCIA",
+  "valorTransacao": 0
+}
+
+```
+
+``` json 
+{
+  "contaOrigem": {
+    "numeroAgencia": "string",
+    "numeroConta": "string"
+  },
+  "tipoTransacao": "TRANSFERENCIA",
+  "valorTransacao": 0
+}
+
+```
