@@ -4,10 +4,9 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://app-wallet-learning.eastus.cloudapp.azure.com:8761/eureka
 
 spring:
-
   application:
     name: gateway-service
 
@@ -21,6 +20,10 @@ spring:
           uri: lb://CONTA-SERVICE
           predicates:
             - Path=/contas/**, /agencias/**, /transacoes/**, /contas/v2/api-docs/**
+        - id: contas
+          uri: lb://USUARIO-SERVICE
+          predicates:
+            - Path=/usuarios/**
 
 swagger:
   config:

@@ -1,0 +1,56 @@
+version: '2.1'
+services:
+  rabbitmq:
+    image: rabbitmq:3.6-management-alpine
+    ports:
+      - 15672:15672
+      - 5672:5672
+    container_name: rabbitmq-wallet
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_USER=guest
+      - RABBITMQ_PASS=guest
+      - RABBITMQ_DEFAULT_VHOST=b2b
+
+  mongodb:
+    image: mongo:3.6.1
+    container_name: mongodb-wallet
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+    volumes:
+      - MONGO_DATA:/data/db
+    ports:
+      - 27017:27017
+    command: mongod
+
+  eureka-server:
+    image: springcloud/eureka
+    container_name: eureka-wallet
+    ports:
+      - 8761:8761
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    container_name: sqlserver-wallet
+    environment:
+      - SA_PASSWORD=sqlServer@Test123
+      - ACCEPT_EULA=Y
+    ports:
+      - 1433:1433
+    volumes:
+      - SQL_DATA:/data/db
+
+  conta-service:
+    image: conta
+    container_name: conta-service
+    environment:
+      - SPRING_PROFILES_ACTIVE=container
+    depends_on:
+      - sqlserver
+      - eureka-server
+      - rabbitmq
+
+volumes:
+  MONGO_DATA:
+  SQL_DATA:
