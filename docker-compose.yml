@@ -45,7 +45,27 @@ services:
     image: conta
     container_name: conta-service
     environment:
-      - SPRING_PROFILES_ACTIVE=container
+      - SPRING_PROFILES_ACTIVE=azure
+    depends_on:
+      - sqlserver
+      - eureka-server
+      - rabbitmq
+
+  usuario-service:
+    image: usuario
+    container_name: usuario-service
+    environment:
+      - SPRING_PROFILES_ACTIVE=azure
+    depends_on:
+      - sqlserver
+      - eureka-server
+      - rabbitmq
+
+  transacao-service:
+    image: transacao
+    container_name: transacao-service
+    environment:
+      - SPRING_PROFILES_ACTIVE=azure
     depends_on:
       - sqlserver
       - eureka-server
