@@ -29,18 +29,18 @@ Projeto de uma WALLET utilizando microserviços, java e spring.
 
 ```json
 {
-  "cpf": "01234567890",
-  "dataNascimento": "2010-10-12",
+  "cpf": "string",
+  "dataNascimento": "yyyy-mm-dd",
   "endereco": {
-    "cep": "55920000",
-    "cidade": "itambé",
-    "estado": "PE",
-    "logradouro": "av eliud falcão",
-    "numero": "140"
+    "cep": "string",
+    "cidade": "string",
+    "estado": "string",
+    "logradouro": "string",
+    "numero": "string"
   },
-  "nome": "Rafael",
+  "nome": "string",
   "telefones": [
-    "81993931476"
+    "string"
   ]
 }
 ```
@@ -118,3 +118,8 @@ para visualizar o usuário cadastrado é possivel.
 }
 
 ```
+
+
+#### É possivel acessar a documentação de cada projeto separado.
+
+* http://{URL}:{PORT}/swagger-ui.html
