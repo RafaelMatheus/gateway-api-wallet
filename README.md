@@ -1,6 +1,9 @@
 # WALLET BACKEND
 
 Projeto de uma WALLET utilizando microserviços, java e spring.
+## Arquitetura do projeto
+
+![Desenho arquitetural](https://user-images.githubusercontent.com/25590639/150031129-5ca1fdd4-e610-4958-8605-c8c13751ca77.jpeg)
 
 
 ### Como executar o projeto
@@ -91,3 +94,4 @@ para visualizar o usuário cadastrado é possivel.
 }
 
 ```
+
